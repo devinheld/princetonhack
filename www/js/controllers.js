@@ -53,10 +53,31 @@ angular.module('starter.controllers', [])
 .controller('PlaylistCtrl', function($scope, $stateParams) {
 })
 
+.controller('LoginCtrl', function($scope) {
+  console.log("login ctrl code running");
+})
 
 
+.service('FbSvc', function(){
 
+  this.user;
+  this.auth;
+  this.authenticate = function () { };
 
+  this.appHasReqPermissions = function () {
+      if (auth) {
+          if (auth.granted_scopes) {
+              //check that granted_scopes includes both "publish_actions" and "user_managed_groups" and return true
+              var permissionArray = auth.granted_scopes.split(',');
+              var scopes_exist = ($.inArray("publish_actions", permissionArray) > -1) &&
+                                      ($.inArray("user_managed_groups", permissionArray) > -1);
+              return scopes_exist;
+          }
+      }
+      return false;
+  };
+
+})
 
 
 ;
