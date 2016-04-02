@@ -43,11 +43,26 @@ angular.module('starter.controllers', [])
 
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
-    { title: 'Events', id: 1 },
-    { title: 'Settings', id: 2 },
-    { title: 'Friends', id: 3 }
+    { title: 'Events', id: 1, img: '../img/event.jpg' },
+      { title: 'Friends', id: 3, img: '../img/event.jpg' },
+    { title: 'Preferences', id: 2, img: '../img/event.jpg' }
+    
   ];
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
-});
+})
+
+
+
+
+
+
+
+;
+
+
+angular.module('gridListDemo1', ['ngMaterial'])
+.controller('Ctrl', function($scope) {});
+
+
