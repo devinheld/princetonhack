@@ -187,6 +187,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
   
+  .state('app.info', {
+    url: '/home/1/:id',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/moreinfo.html',
+          controller: 'EventsCtrl'
+      }
+    }
+  })
+  
   ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');

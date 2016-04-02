@@ -8,6 +8,21 @@ angular.module('starter.controllers', [])
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+    
+    $scope.init = function(id)
+  {
+    //This function is sort of private constructor for controller
+        
+        // must use DB to get data here based on id sent here.
+        
+    $scope.event = {name: id, attendees: [0,1,1], city: "Princeton", creator: "0", date: "04/06/2016", duration: "01:00", img: "http://www.elitetraveler.com/wp-content/uploads/2014/05/Princeton-University-small-1.jpg", location: "Friend's Center", state: "New Jersey", streetaddress: "123 Main St", time:"07:00", zipcode:"09123"};
+   // $scope.name = name; 
+    //Based on passed argument you can make a call to resource
+    //and initialize more objects
+    //$resource.getMeBond(007)
+  };
+    
+    
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -48,6 +63,11 @@ angular.module('starter.controllers', [])
     { title: 'Preferences', id: 2, img: './img/preferences.jpg' }
     
   ];
+})
+
+.controller('EventsCtrl', function($scope) {
+   // $scope.event = $scope.location;
+  
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
