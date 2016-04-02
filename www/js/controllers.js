@@ -2,12 +2,14 @@ angular.module('starter.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
+    
+    $scope.signIn = function(form)
+    {
+        console.log('Hit sign in');
+        console.log(form.username.$viewValue);
+        console.log(form.password.$viewValue);
+        
+    }
     
     $scope.init = function(id)
   {
@@ -16,10 +18,7 @@ angular.module('starter.controllers', [])
         // must use DB to get data here based on id sent here.
         
     $scope.event = {name: id, attendees: [0,1,1], city: "Princeton", creator: "0", date: "04/06/2016", duration: "01:00", img: "http://www.elitetraveler.com/wp-content/uploads/2014/05/Princeton-University-small-1.jpg", location: "Friend's Center", state: "New Jersey", streetaddress: "123 Main St", time:"07:00", zipcode:"09123"};
-   // $scope.name = name; 
-    //Based on passed argument you can make a call to resource
-    //and initialize more objects
-    //$resource.getMeBond(007)
+
   };
     
     
@@ -75,6 +74,11 @@ angular.module('starter.controllers', [])
 
 .controller('LoginCtrl', function($scope) {
   console.log("login ctrl code running");
+})
+
+
+.controller('FormCtrl', function($scope) {
+  console.log("form ctrl code running");
 })
 
 
