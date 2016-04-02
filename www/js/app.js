@@ -158,6 +158,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   // Will have to do below for every different page... 
   // change :playlistId to the name of the next page
   .state('app.events', {
+      cache: false,
     url: '/home/1',
     views: {
       'menuContent': {
