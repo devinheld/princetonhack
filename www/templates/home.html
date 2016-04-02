@@ -1,0 +1,18 @@
+<ion-view view-title="Home">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="playlist in playlists" href="#/app/home/{{playlist.id}}">
+          <div class="card">
+            <div class="item item-text-wrap">
+                <br>
+                <center>
+                    <h2>{{playlist.title}}</h2>
+                    </center>
+                <br>
+                <br>
+            </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

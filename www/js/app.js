@@ -49,25 +49,48 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.home', {
+      url: '/home',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
+          templateUrl: 'templates/home.html',
           controller: 'PlaylistsCtrl'
         }
       }
     })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  
+  // Will have to do below for every different page... 
+  // change :playlistId to the name of the next page
+  .state('app.events', {
+    url: '/home/1',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
+        templateUrl: 'templates/events.html',
         controller: 'PlaylistCtrl'
       }
     }
-  });
+  })
+  .state('app.settings', {
+    url: '/home/2',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/settings.html',
+        controller: 'PlaylistCtrl'
+      }
+    }
+  })
+  
+  .state('app.friends', {
+    url: '/home/3',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/friends.html',
+        controller: 'PlaylistCtrl'
+      }
+    }
+  })
+  
+  ;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/home');
 });
