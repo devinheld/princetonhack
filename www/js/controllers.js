@@ -103,7 +103,5 @@ angular.module('starter.controllers', [])
 ;
 
 
-angular.module('gridListDemo1', ['ngMaterial'])
-.controller('Ctrl', function($scope) {});
 
 
