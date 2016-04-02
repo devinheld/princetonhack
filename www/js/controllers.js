@@ -44,8 +44,8 @@ angular.module('starter.controllers', [])
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Events', id: 1, img: './img/event.jpg' },
-      { title: 'Friends', id: 3, img: './img/event.jpg' },
-    { title: 'Preferences', id: 2, img: './img/event.jpg' }
+      { title: 'Friends', id: 3, img: './img/friends.jpg' },
+    { title: 'Preferences', id: 2, img: './img/preferences.jpg' }
     
   ];
 })
