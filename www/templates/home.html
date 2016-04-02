@@ -10,8 +10,17 @@
     
     </head>
 <body>
-<ion-view view-title="Home">
-  <ion-content>      
+    
+    
+<ion-view view-title="Home" >
+    
+<ion-content> 
+      <!--
+          <ion-nav-bar class="bar bar-header">
+        <button class="button button-icon icon ion-navicon"></button>
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+      <br><br>-->
        
     <ion-list>
       <ion-item ng-repeat="playlist in playlists" href="#/app/home/{{playlist.id}}">
@@ -32,10 +41,6 @@
         </div>
                   </div>
                  </div>
-          
-          
-          
-          
       </ion-item>
     </ion-list>
   </ion-content>
