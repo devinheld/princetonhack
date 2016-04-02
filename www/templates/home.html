@@ -1,18 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+          
+    
+    </head>
+<body>
 <ion-view view-title="Home">
-  <ion-content>
+  <ion-content>      
+      
+      
+      <div class="row">
+<div class="col s12 m4 l3">
+    
+    <a href="#/app/home/1">
+        <div class="card" >
+            <div class="item item-text-wrap">
+                      <img src="../img/event.jpg" height="125px" width="175px"/>
+                <br>
+          
+     
+                <div class="card-panel cyan lighten-2">
+                    <span class="white-text">
+                        <center>
+                            <b> <h2>Events<br></h2></b>
+                    </center>
+            
+                </span>
+            </div>
+        </div>
+    </div>
+    </a>
+
+      </div>
+
+      <div class="col s12">
+
+          <a href="#/app/home/2">
+        <div class="card" >
+            <div class="item item-text-wrap">
+                  
+                <br>
+          
+     
+                <div class="card-panel cyan lighten-2">
+                    <span class="white-text">
+                        <center>
+                            <b> <h2>Friends<br></h2></b>
+                    </center>
+            
+                </span>
+            </div>
+        </div>
+    </div>
+    </a>
+          
+          
+       
+          
+          <a href="#/app/home/3">
+        <div class="card" >
+            <div class="item item-text-wrap">
+                    Image.
+                <br>
+          
+     
+                <div class="card-panel cyan lighten-2">
+                    <span class="white-text">
+                        <center>
+                            <b> <h2>Settings<br></h2></b>
+                    </center>
+            
+                </span>
+            </div>
+        </div>
+    </div>
+    </a>
+          
+          
+
+
+      </div>
+
+          
+          
+          
+  
+    </div>
+      
+      
+      
+      
+      
     <ion-list>
       <ion-item ng-repeat="playlist in playlists" href="#/app/home/{{playlist.id}}">
           <div class="card">
             <div class="item item-text-wrap">
+                    Image.
                 <br>
-                <center>
-                    <h2>{{playlist.title}}</h2>
+          
+     
+           <div class="card-panel cyan lighten-2">
+          <span class="white-text">
+              
+                 <center>
+                     <b> <h2>{{playlist.title}}</h2></b>
                     </center>
-                <br>
-                <br>
-            </div>
+            
+          </span>
         </div>
+                  </div>
+                 </div>
+          
+          
+          
+          
       </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
+</body>
+</html>
