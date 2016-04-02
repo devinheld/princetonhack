@@ -172,7 +172,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/settings.html',
-        controller: 'PlaylistCtrl'
+        controller: 'FormCtrl'
       }
     }
   })

@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $location, $state) {
 
     
     $scope.signIn = function(form)
@@ -8,6 +8,8 @@ angular.module('starter.controllers', [])
         console.log('Hit sign in');
         console.log(form.username.$viewValue);
         console.log(form.password.$viewValue);
+        
+       $state.go('app.home');
         
     }
     
