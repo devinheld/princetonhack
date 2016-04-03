@@ -74,11 +74,67 @@ angular.module('starter.controllers', ["firebase"])
 
 .controller('FriendsCtrl', function($scope, $firebaseArray){
 
-  var ref = new Firebase("https://princetonhack.firebaseio.com/friends");
+  var friends_ref = new Firebase("https://princetonhack.firebaseio.com/friends");
+  $scope.db_friends = $firebaseArray(friends_ref);
 
-  // create a synchronized array
-  // click on `index.html` above to see it used in the DOM!
-  $scope.friends = $firebaseArray(ref);
+
+
+
+  var users_ref = new Firebase("https://princetonhack.firebaseio.com/users");
+  $scope.db_users = $firebaseArray(users_ref);
+
+  $scope.f = [];
+  var num = 0;
+  $scope.friends = [];
+
+
+
+  angular.forEach($scope.db_friends, function(value, key) {
+
+        if (value.id == 0) {
+          $scope.f.push(value.friend);
+          console.log(value.friend);
+          num = num + 1;
+
+        }
+        
+  });
+
+angular.forEach($scope.db_users, function(value, key) {
+
+        for (var i = 0; i < num; i++) {
+          if (value.id == $scope.f[i]) {
+
+              $scope.friends.push(value);
+          }
+        }
+        
+  });
+
+
+
+  // $.each(db_friends, function(index,value){
+
+  //   if(value.id == 0)
+  //   {
+  //     var friend_id = value.friend;
+
+  //      $.each(db_users, function(index,value){
+
+  //       if(value.id == friend_id)
+  //       {
+  //         $scope.friends.push(value);
+  //       }
+        
+  //      });
+  //   }
+
+  // });
+
+  
+
+
+
 
 
   // // download the data into a local object
