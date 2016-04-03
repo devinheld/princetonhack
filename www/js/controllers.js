@@ -260,8 +260,106 @@ angular.forEach($scope.db_users, function(value, key) {
 })
 
 
-.controller('FormCtrl', function($scope) {
+.controller('FormCtrl', function($scope, $state, $firebaseArray) {
   console.log("form ctrl code running");
+
+
+
+  var users_ref = new Firebase("https://radiant-torch-374.firebaseio.com/users/5");
+  //$scope.array = $firebaseArray(users_ref);
+  //friends_ref.set('User ' + name + ' says ' + text);
+
+
+  var daysOfTheWeek = ["Monday", "Tuesday", "Wednesday", "Thurdsday", "Friday", "Saturday", "Sunday"];
+  var time = ["Morning", "Afternoon", "Evening"];
+  $scope.activities = ["Baseball", "Bowling", "Movie", "Coffee", "Drink at Bar", "Netflix and Chill"];
+
+  // $scope.availability_data = [];
+
+  // for(var i = 0; i < daysOfTheWeek.length; i++)
+  // {
+  //   $scope.availability_data.push({
+  //     dayName:daysOfTheWeek[i],
+  //     morning:false,
+  //     afternoon:false,
+  //     evening:false
+  //   });
+  // }
+
+
+$scope.testBox = "asdasd";
+
+
+  $scope.authorization = {
+      firstname: "",
+      lastname: "",
+      email: "",
+      phone: "",
+      address: "",
+      city: "",
+      postal: "",
+      budget: 0,
+      availability_data : [],
+      activities:
+      {
+        baseball: false,
+        bowling: false,
+        movie: false,
+        coffee: false,
+        drink_at_bar: false,
+        netflix_chill: false
+      }
+    };
+
+  for(var i = 0; i < daysOfTheWeek.length; i++)
+  {
+    $scope.authorization.availability_data.push({
+      dayName:daysOfTheWeek[i],
+      morning:false,
+      afternoon:false,
+      evening:false
+    });
+  }
+
+  $scope.signIn = function(form)
+  {
+      // console.log('Hit sign in');
+      // console.log(form.firstname.$viewValue);
+      // console.log(form.lastname.$viewValue);
+      // console.log(form.email.$viewValue);
+
+      console.log($scope.authorization);
+
+      var data = {firstname: $scope.authorization.firstname,
+                  lastname: $scope.authorization.lastname,
+                  email: $scope.authorization.email,
+                  phone: $scope.authorization.phone,
+                  address: $scope.authorization.address,
+                  city: $scope.authorization.city,
+                  postal: $scope.authorization.postal,
+                  budget: $scope.authorization.budget
+
+
+
+                };
+
+      //var json = JSON.parse($scope.authorization);
+
+      users_ref.push(data);
+
+     
+      
+     //$state.go('app.home');
+      
+  };
+
+  $scope.test = function()
+  {
+
+    var x = 2;
+  };
+
+
 })
 
 

@@ -17,21 +17,116 @@
       
       <form name="authorizationForm" novalidate="" ng-submit="signIn(authorizationForm)"> 
          
-          <div class="list">
+                   <div class="list">
            
-            <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.username.$invalid, 'no-errors' : authorizationForm.username.$valid}">
-              <span class="input-label">Username</span>
-              <input type="text" name="username" ng-model="authorization.username" ng-minlength="5" ng-maxlength="20" required>
+             <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.firstname.$invalid, 'no-errors' : authorizationForm.firstname.$valid}">
+              <span class="input-label">First name</span>
+              <input type="text" name="firstname" ng-model="authorization.firstname" required>
             </label>
-             
-             
-            <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.password.$invalid && authorizationForm.$submitted, 'no-errors' : authorizationForm.password.$valid  && authorizationForm.$submitted}">
-              <span class="input-label">Password</span>
-              <input type="password" name="password" ng-model="authorization.password" ng-minlength="5" ng-maxlength="20" required>
+
+             <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.lastname.$invalid, 'no-errors' : authorizationForm.lastname.$valid}">
+              <span class="input-label">Last name</span>
+              <input type="text" name="lastname" ng-model="authorization.lastname" required>
             </label>
                   
-             
-          </div>     
+            <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.email.$invalid, 'no-errors' : authorizationForm.email.$valid}">
+              <span class="input-label">Email</span>
+              <input type="email" name="email" ng-model="authorization.email" ng-minlength="5" ng-maxlength="50" required>
+            </label>
+                       
+             <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.phone.$invalid, 'no-errors' : authorizationForm.phone.$valid}">
+              <span class="input-label">Phone</span>
+              <input type="tel" name="phone" ng-model="authorization.phone" ng-minlength="5" ng-maxlength="20" required>
+            </label>
+
+            <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.address.$invalid, 'no-errors' : authorizationForm.address.$valid}">
+              <span class="input-label">Address</span>
+              <input type="text" name="address" ng-model="authorization.address" ng-minlength="5" ng-maxlength="20" required>
+            </label>
+
+            <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.city.$invalid, 'no-errors' : authorizationForm.city.$valid}">
+              <span class="input-label">City</span>
+              <input type="text" name="city" ng-model="authorization.city" ng-minlength="5" ng-maxlength="20" required>
+            </label>
+
+             <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.postal.$invalid, 'no-errors' : authorizationForm.postal.$valid}">
+              <span class="input-label">Postal code</span>
+              <input type="text" name="postal" ng-model="authorization.postal" ng-minlength="5" ng-maxlength="20" required>
+            </label>
+
+            <label class="item item-input" ng-class="{ 'has-errors' : authorizationForm.budget.$invalid, 'no-errors' : authorizationForm.budget.$valid}">
+              <span class="input-label">Budget</span>
+              <input type="text" name="budget" ng-model="authorization.budget" ng-minlength="1" ng-maxlength="20" required>
+            </label>
+
+            <table>
+              <tr ng-repeat="day in authorization.availability_data">
+                <td>{{ day.dayName }}</td>
+<!--                 <td><input type="checkbox" ng-model="day.morning">Morning2</td>
+                <td><input type="checkbox" ng-model="day.afternoon">Morning2</td>
+                <td><input type="checkbox" ng-model="day.evening">Morning2</td>  -->
+
+                <td>
+                  <input type="checkbox" ng-model="day.morning" id="{{day.dayName + 'morning'}}"/>
+                  <label for="{{day.dayName + 'morning'}}">Morning</label>
+                </td>
+
+                <td>
+                  <input type="checkbox" ng-model="day.afternoon" id="{{day.dayName + 'afternoon'}}"/>
+                  <label for="{{day.dayName + 'afternoon'}}">Afternoon</label>
+                </td>
+
+                <td>
+                  <input type="checkbox" ng-model="day.evening" id="{{day.dayName + 'evening'}}"/>
+                  <label for="{{day.dayName + 'evening'}}">Evening</label>
+                </td>
+
+
+                <!-- <td ng-repeat="slot in time"> 
+                    <input type="checkbox" ng-model="day.morning" id="{{day.dayName + slot}}"/>
+                    <label for="{{day.dayName + slot}}">{{day.dayName + slot}}</label>
+                </td>
+ -->
+
+                <!-- <td> 
+                    <input type="checkbox" ng-model="day.afternoon" />
+                    <label>Afternoon</label>
+                </td> -->
+
+              <td>{{day.morning}}, {{day.afternoon}}, {{day.evening}}</td>
+                <!-- <td><input type="checkbox" ng-model="{{day.afternoon}}" checked>Afternoon</td>
+                <td><input type="checkbox" ng-model="{{day.evening}}" checked>Evening</td> -->
+              </tr>
+
+              <tr>
+               <td>
+                  <input type="checkbox" ng-model="authorization.activities.baseball" id="baseball"/>
+                  <label for="baseball">Baseball</label>
+                </td>
+                <td>
+                  <input type="checkbox" ng-model="authorization.activities.bowling" id="bowling"/>
+                  <label for="bowling">Bowling</label>
+                </td>
+                <td>
+                  <input type="checkbox" ng-model="authorization.activities.movie" id="movie"/>
+                  <label for="movie">Movie</label>
+                </td>
+                <td>
+                  <input type="checkbox" ng-model="authorization.activities.coffee" id="coffee"/>
+                  <label for="coffee">Coffee</label>
+                </td>
+                <td>
+                  <input type="checkbox" ng-model="authorization.activities.drink_at_bar" id="drink_at_bar"/>
+                  <label for="drink_at_bar">Drink at Bar</label>
+                </td>
+                <td>
+                  <input type="checkbox" ng-model="authorization.activities.netflix_chill" id="netflix_chill"/>
+                  <label for="netflix_chill">Netflix and Chill</label>
+                </td>
+              </tr>
+            </table>
+
+          </div>  
            
           <button class="button button-full button-positive" type="submit">
             Sign In
