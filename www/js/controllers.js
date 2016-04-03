@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ["firebase"])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $location, $state) {
 
@@ -69,6 +69,24 @@ angular.module('starter.controllers', [])
 .controller('EventsCtrl', function($scope) {
    // $scope.event = $scope.location;
   
+})
+
+
+.controller('FriendsCtrl', function($scope, $firebaseArray){
+
+  var ref = new Firebase("https://princetonhack.firebaseio.com/friends");
+
+  // create a synchronized array
+  // click on `index.html` above to see it used in the DOM!
+  $scope.friends = $firebaseArray(ref);
+
+
+  // // download the data into a local object
+  // var syncObject = $firebaseObject(ref);
+  // // synchronize the object with a three-way data binding
+  // // click on `index.html` above to see it used in the DOM!
+  // syncObject.$bindTo($scope, "friends");
+
 })
 
 .controller('PlaylistCtrl', function($scope, $stateParams) {
