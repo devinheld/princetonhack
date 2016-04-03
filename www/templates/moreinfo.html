@@ -23,13 +23,13 @@
           <span class="white-text">
               
                  <center>
-                     <b> <h2>{{event.name}}</h2></b>
+                     <b> <h2>{{eventinfo.name}}</h2></b>
                     </center>
             
           </span>
         </div>
                 
-           <img src="{{event.img}}" height="20%" width="100%"/>
+           <img src="{{eventinfo.img}}" height="20%" width="100%"/>
             <br>
           
      
@@ -40,12 +40,12 @@
       <center>
  <i class="small material-icons">location_on</i>
       
-    {{event.streetaddress}} {{event.city}} {{event.state}}, {{event.zipcode}}
+    {{eventinfo.streetaddress}} {{eventinfo.city}} {{eventinfo.state}}, {{eventinfo.zipcode}}
 <br>
-     <i class="small material-icons">today</i> {{event.date}} &nbsp;&nbsp;
-      <i class="small material-icons">schedule</i> {{event.time}} &nbsp;&nbsp;
+     <i class="small material-icons">today</i> {{eventinfo.date}} &nbsp;&nbsp;
+      <i class="small material-icons">schedule</i> {{eventinfo.time}} &nbsp;&nbsp;
 
-      <i class="small material-icons">av_timer</i> {{event.duration}}
+      <i class="small material-icons">av_timer</i> {{eventinfo.duration}}
       
 <br>
       <center>

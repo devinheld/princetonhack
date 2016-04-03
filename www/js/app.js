@@ -173,7 +173,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/events.html',
-        controller: 'PlaylistCtrl'
+        controller: 'EventsCtrl'
       }
     }
   })
@@ -202,7 +202,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/moreinfo.html',
-          controller: 'EventsCtrl'
+          controller: 'OneCtrl'
       }
     }
   })

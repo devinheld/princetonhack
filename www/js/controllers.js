@@ -2,6 +2,7 @@ angular.module('starter.controllers', ["firebase"])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $location, $state) {
 
+    $scope.event = [];
     $scope.search = [];
     $scope.signIn = function(form)
     {
@@ -34,10 +35,17 @@ angular.module('starter.controllers', ["firebase"])
         
         // must use DB to get data here based on id sent here.
         
-    $scope.event = {name: id, attendees: [0,1,1], city: "Princeton", creator: "0", date: "04/06/2016", duration: "01:00", img: "http://www.elitetraveler.com/wp-content/uploads/2014/05/Princeton-University-small-1.jpg", location: "Friend's Center", state: "New Jersey", streetaddress: "123 Main St", time:"07:00", zipcode:"09123", name: "Hack Princeton"};
-
-  };
-    
+      
+        
+        
+        $scope.id = id;
+        $scope.id.$loaded().then(function() {
+        
+        
+        
+          $state.go('app.info');
+        });
+  }
     
 
   // Form data for the login modal
@@ -71,7 +79,38 @@ angular.module('starter.controllers', ["firebase"])
     }, 1000);
   };
 })
+    
+    .controller('OneCtrl', function($scope, $firebaseArray) {
+   // $scope.event = $scope.location;
+      var events = new Firebase("https://princetonhack.firebaseio.com/events");
+  $scope.choose = $firebaseArray(events);
+        
+        
+         $scope.choose.$loaded().then(function(group) {
+   console.log(group.length); // data is loaded here
+        
+        
+        
+        angular.forEach($scope.choose, function(value, key) {
+            console.log('name by lookingfor id', value.name, $scope.id);
+        if (value.name == $scope.id) {
+            console.log('found the event');
+            //console.log('at 0 ', value.id, value.friend);
+         //   $scope.f.push(value.friend);
+          
+        
+            $scope.eventinfo = value;
+            
+            
+            
 
+        }
+        
+  });
+    
+  
+});
+    })
 .controller('PlaylistsCtrl', function($scope) {
   $scope.playlists = [
     { title: 'Events', id: 1, img: './img/event.jpg' },
@@ -81,8 +120,13 @@ angular.module('starter.controllers', ["firebase"])
   ];
 })
 
-.controller('EventsCtrl', function($scope) {
+.controller('EventsCtrl', function($scope, $firebaseArray) {
    // $scope.event = $scope.location;
+    
+    
+    var events = new Firebase("https://princetonhack.firebaseio.com/events");
+  $scope.event = $firebaseArray(events);
+    console.log('hi');
   
 })
 
@@ -90,11 +134,58 @@ angular.module('starter.controllers', ["firebase"])
 .controller('FriendsCtrl', function($scope, $firebaseArray){
 
   var friends_ref = new Firebase("https://princetonhack.firebaseio.com/friends");
-  $scope.friends = $firebaseArray(friends_ref);
+  $scope.fri = $firebaseArray(friends_ref);
+    $scope.friends = [];
+    var num = 0;
+    $scope.fri.$loaded().then(function(fri) {
+   console.log(fri.length); // data is loaded here
+        
+        
+        
+        angular.forEach($scope.fri, function(value, key) {
 
+        if (value.id == 0) {
+            //console.log('at 0 ', value.id, value.friend);
+         //   $scope.f.push(value.friend);
+          
+            num = num + 1;
+            
+            console.log('searching for: ', value.friend);
+            var f = value.friend;
+            var users_ref = new Firebase("https://princetonhack.firebaseio.com/users");
+            $scope.users = $firebaseArray(users_ref);
+            $scope.users.$loaded().then(function(users) {
+                angular.forEach($scope.users, function(value, key) {
+                if (value.id == f)
+                {
+                    console.log('find a friend match', value.id);
+                    $scope.friends.push(value);
+                }
+                
+                
+                });
+                
+            });
+            
+            
 
+        }
+        
+  });
+        
+        
+        
+});
     
     
+   // console.log($scope.fri.length);
+  //  for (var i = 0; i < $scope.fri.length; i++)
+  //  {
+  //      console.log($scope.fri[i].id);
+  //  }
+    
+   // $scope.friends = $scope.fri;
+
     
  console.log('hello');
 
