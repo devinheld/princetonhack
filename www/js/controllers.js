@@ -2,7 +2,7 @@ angular.module('starter.controllers', ["firebase"])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $location, $state) {
 
-    
+    $scope.search = [];
     $scope.signIn = function(form)
     {
         console.log('Hit sign in');
@@ -13,13 +13,28 @@ angular.module('starter.controllers', ["firebase"])
         
     }
     
+    
+    $scope.getFriends = function(friends)
+    {
+        if (friends.id == 0) {
+            console.log(' found 0 ');
+            $scope.search.push(friends);
+        }
+    }
+    
+    $scope.friendpage = function(user)
+    {
+        console.log("friendpage");
+       $scope.choice = user; 
+        
+    }
     $scope.init = function(id)
   {
     //This function is sort of private constructor for controller
         
         // must use DB to get data here based on id sent here.
         
-    $scope.event = {name: id, attendees: [0,1,1], city: "Princeton", creator: "0", date: "04/06/2016", duration: "01:00", img: "http://www.elitetraveler.com/wp-content/uploads/2014/05/Princeton-University-small-1.jpg", location: "Friend's Center", state: "New Jersey", streetaddress: "123 Main St", time:"07:00", zipcode:"09123"};
+    $scope.event = {name: id, attendees: [0,1,1], city: "Princeton", creator: "0", date: "04/06/2016", duration: "01:00", img: "http://www.elitetraveler.com/wp-content/uploads/2014/05/Princeton-University-small-1.jpg", location: "Friend's Center", state: "New Jersey", streetaddress: "123 Main St", time:"07:00", zipcode:"09123", name: "Hack Princeton"};
 
   };
     
@@ -75,22 +90,22 @@ angular.module('starter.controllers', ["firebase"])
 .controller('FriendsCtrl', function($scope, $firebaseArray){
 
   var friends_ref = new Firebase("https://princetonhack.firebaseio.com/friends");
-  $scope.db_friends = $firebaseArray(friends_ref);
+  $scope.friends = $firebaseArray(friends_ref);
 
 
-
+    
+    
+    
+ console.log('hello');
 
   var users_ref = new Firebase("https://princetonhack.firebaseio.com/users");
-  $scope.db_users = $firebaseArray(users_ref);
+  $scope.users = $firebaseArray(users_ref);
 
-  $scope.f = [];
-  var num = 0;
-  $scope.friends = [];
-
-
-
+    
+    
+/*
   angular.forEach($scope.db_friends, function(value, key) {
-
+        console.log('hi');
         if (value.id == 0) {
           $scope.f.push(value.friend);
           console.log(value.friend);
@@ -110,6 +125,7 @@ angular.forEach($scope.db_users, function(value, key) {
         }
         
   });
+  */
 
 
 

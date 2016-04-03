@@ -144,6 +144,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
       }
     })
+  
+  .state('app.user', {
+      url: '/user',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/user.html',
+          controller: 'PlaylistsCtrl'
+        }
+      }
+    })
 
     .state('app.login', {
       url: '/login',

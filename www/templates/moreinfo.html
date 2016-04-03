@@ -7,7 +7,8 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
           
-    
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     </head>
 <body>
 
@@ -36,13 +37,46 @@
                   </div>
                  </div>
       
+      <center>
+ <i class="small material-icons">location_on</i>
       
+    {{event.streetaddress}} {{event.city}} {{event.state}}, {{event.zipcode}}
+<br>
+     <i class="small material-icons">today</i> {{event.date}} &nbsp;&nbsp;
+      <i class="small material-icons">schedule</i> {{event.time}} &nbsp;&nbsp;
 
-
-      {{event.name}}
-      {{event.city}}
-      {{event.date}}
+      <i class="small material-icons">av_timer</i> {{event.duration}}
       
+<br>
+      <center>
+            
+                  <img src="http://www.decalmenow.com/fpdb/images/YoungGirl.gif" height="20%" width="10%" hspace="20px"/> &nbsp;
+                  
+                  
+          
+                  
+               
+                  <img src="http://kmcmurtrydesign.com/images/KMD082-06.JPG" height="20%" width="10%" hspace="5px"/>  &nbsp;
+          
+                  
+          
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/American_Beaver.jpg" height="20%" width="10%" hspace="5px"/>  &nbsp;
+          
+                  <img src="http://i.telegraph.co.uk/multimedia/archive/03029/Becks1_5_3029072b.jpg" height="20%" width="10%" hspace="5px"/>  &nbsp;
+                  
+                     
+            <i class="small material-icons">view_list</i>
+                  
+
+          </center>
+          
+          <div class="card-panel cyan lighten-2">
+          <span class="white-text">
+          <i class="medium material-icons">done</i>
+          <i class="medium material-icons">not_interested</i>
+              </span>
+          </div>
+     </center> 
       
   </ion-content>
 </ion-view>
