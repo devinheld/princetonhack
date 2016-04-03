@@ -330,34 +330,16 @@ $scope.testBox = "asdasd";
 
       console.log($scope.authorization);
 
-      var data = {firstname: $scope.authorization.firstname,
-                  lastname: $scope.authorization.lastname,
-                  email: $scope.authorization.email,
-                  phone: $scope.authorization.phone,
-                  address: $scope.authorization.address,
-                  city: $scope.authorization.city,
-                  postal: $scope.authorization.postal,
-                  budget: $scope.authorization.budget
-
-
-
-                };
-
       //var json = JSON.parse($scope.authorization);
 
-      users_ref.push(data);
+      //users_ref.push(data);
 
      
       
-     //$state.go('app.home');
+     $state.go('app.home');
       
   };
 
-  $scope.test = function()
-  {
-
-    var x = 2;
-  };
 
 
 })
